@@ -10,7 +10,7 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:latest
-    link:
+    links:
       - zk
     environment:
       KAFKA_BROKER_ID: 1
