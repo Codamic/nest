@@ -5,5 +5,5 @@
 
 
 (def system
-  {:components [(web/factory router/routes {:port 3000})]
+  {:components [(web/factory router/routes {:port 3000 :executor []})]
    :workflow []})
