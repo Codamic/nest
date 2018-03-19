@@ -1,11 +1,12 @@
 (ns nest.routes
-  (:require [hellhound.http :as http]))
+  (:require [hellhound.http :as http]
+            [hellhound.logger :as logger]))
 
 (defn home
   [args]
-  (println "<<<<<<<<<<<<<<<<<<<,")
+  (logger/debug "<<<<<<<<<<<<<<<<<<<,")
   (println args)
-  {:status 200 :headers [] :body "hey"})
+  (assoc args :response {:status 200 :headers [] :body "hey"}))
 
 (http/defrouter routes
   ["/" :get [{:name ::home :enter home}] :route-name :home])
